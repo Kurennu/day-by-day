@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}day-by-dayт{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mainapp/styles.css' %}" />
+</head>
+<body>
+    <header>
+        <h1>Заголовок сайта</h1>
+        <nav>
+            <ul>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Здесь будет основной контент страниц -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2025 Мой сайт</p>
+    </footer>
+</body>
+</html>

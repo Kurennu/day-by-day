@@ -1,0 +1,40 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}Менеджер задач - {{ user.first_name }}{% endblock %}
+
+{% block content %}
+<h1>Менеджер задач для {{ user.first_name }} {{ user.last_name }}</h1>
+
+<section class="schedule">
+    <h2>Расписание</h2>
+    {% if schedule %}
+        <div class="schedule-item">
+            <h3>{{ schedule.title }}</h3>
+            <p><strong>Начало:</strong> {{ schedule.start_time }}</p>
+            <p><strong>Конец:</strong> {{ schedule.end_time }}</p>
+            <p>{{ schedule.desc }}</p>
+        </div>
+    {% else %}
+        <p>Расписание отсутствует.</p>
+    {% endif %}
+</section>
+
+<section class="tasks">
+    <h2>Задачи</h2>
+    {% if tasks %}
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <h3>{{ task.title }}</h3>
+                    <p><strong>Начало:</strong> {{ task.start_time }}</p>
+                    <p><strong>Конец:</strong> {{ task.end_time }}</p>
+                    <p>{{ task.desc }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Задач нет.</p>
+    {% endif %}
+</section>
+{% endblock %}
